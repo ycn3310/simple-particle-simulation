@@ -77,17 +77,17 @@ void update_lava(Particle *par){
     }
     //check down for water
 
-    else if(par->y+1<grid_height && p[grid[par->x][par->y+1]].type==WATER){
-        p[grid[par->x][par->y+1]].type = STONE;
-        p[grid[par->x][par->y]].type = STONE;
-        p[grid[par->x][par->y+1]].color = randomcolor(64,64,64,range);
-        p[grid[par->x][par->y]].color = randomcolor(64,64,64,range);
+    else if(grid[par->y+1][par->x] != EMPTY && par->y+1<grid_height && p[grid[par->y+1][par->x]].type==WATER){
+        p[grid[par->y+1][par->x]].type = STONE;
+        p[grid[par->y][par->x]].type = STONE;
+        p[grid[par->y+1][par->x]].color = randomcolor(64,64,64,range);
+        p[grid[par->y][par->x]].color = randomcolor(64,64,64,range);
     }
     //check up for water
-    else if(par->y-1>=0 && p[grid[par->x][par->y+1]].type==WATER){
-        p[grid[par->x][par->y-1]].type = STONE;
-        p[grid[par->x][par->y]].type = STONE;
-        p[grid[par->x][par->y-1]].color = randomcolor(64,64,64,range);
-        p[grid[par->x][par->y]].color = randomcolor(64,64,64,range);
+    else if(grid[par->y-1][par->x] != EMPTY && par->y-1>=0 && p[grid[par->y-1][par->x]].type==WATER){
+        p[grid[par->y-1][par->x]].type = STONE;
+        p[grid[par->y][par->x]].type = STONE;
+        p[grid[par->y-1][par->x]].color = randomcolor(64,64,64,range);
+        p[grid[par->y][par->x]].color = randomcolor(64,64,64,range);
     }
 }

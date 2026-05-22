@@ -28,7 +28,7 @@ int main(void){
     int v[4][4]={{255,207,92,range},//sand
                 {35,137,218,range},//water
                 {64,64,64,range},//stone
-                {240,37*GetRandomValue(0,6),15, range+5}//lava 
+                {240,37*GetRandomValue(1,6),15, range+5}//lava 
     };
     
     while(!WindowShouldClose()){
@@ -66,7 +66,7 @@ int main(void){
             ClearBackground(BLACK);
             drawparticals(num_particals);
             DrawText(TextFormat("number of particals: %i",num_particals), 5, 25, 20, LIGHTGRAY);
-            DrawText(TextFormat("current partical: %s", particals[material_type-1]), 5, 50, 20, LIGHTGRAY);
+            DrawText(TextFormat("current partical: %s", particals[material_type]), 5, 50, 20, LIGHTGRAY);
             DrawFPS(5, 5);
         EndDrawing();
     }
