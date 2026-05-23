@@ -8,4 +8,4 @@
 #include "particles.h"
 
 int grid[grid_height][grid_width];
-Particle p[grid_height*grid_width];
+Particle particles[grid_height*grid_width];

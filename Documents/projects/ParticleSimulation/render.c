@@ -16,7 +16,7 @@ Color randomcolor(int r, int g, int b, int range) {
 
 void drawparticals(int num_particals){
     for(int i=0; i<num_particals;i++){
-        Particle par = p[i];
+        Particle par = particles[i];
         DrawRectangle(par.x*cell_size,par.y*cell_size,cell_size,cell_size,par.color);
     }
 }

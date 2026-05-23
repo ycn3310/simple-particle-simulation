@@ -8,15 +8,24 @@ int clamp(int value, int min, int max) {
     return value;
 }
 
-void swap(int ox, int oy, int nx, int ny){
-    int temp = grid[ox][oy];
-    grid[ox][oy]=grid[nx][ny];
-    grid[nx][ny]=temp;
+void swap(Particle *a, Particle *b){
+    int ax = a->x;
+    int ay = a->y;
+
+    a->x = b->x;
+    a->y = b->y;
+
+    b->x = ax;
+    b->y = ay;
+
+    grid[a->y][a->x] = a - particles;
+    grid[b->y][b->x] = b - particles;
+
 }
 
 void clear(int *number_particles){
     for(int i=0; i<*number_particles; i++){
-        grid[p[i].y][p[i].x]=EMPTY; 
+        grid[particles[i].y][particles[i].x]=EMPTY; 
     }
     *number_particles = 0;
 }
@@ -41,8 +50,6 @@ void checkmaterial(int *material_type, int *number_particles){
 
 void grid_coordinates(int *gx, int *gy){
     Vector2 mouse = GetMousePosition();
-    if(*gx>=0 || *gx<screenWidth && *gy>=0 || *gy<screenHeight){
-        *gx = mouse.x / cell_size;
-        *gy = mouse.y / cell_size;
-    }
+    *gx = mouse.x / cell_size;
+    *gy = mouse.y / cell_size;
 }

@@ -12,4 +12,4 @@
 #define grid_width (screenWidth/cell_size)
 
 extern int grid[grid_height][grid_width];
-extern Particle p[grid_height*grid_width];
+extern Particle particles[grid_height*grid_width];
